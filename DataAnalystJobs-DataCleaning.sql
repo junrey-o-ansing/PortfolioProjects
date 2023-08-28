@@ -87,4 +87,23 @@ SET work_from_home = tempWFH
 ALTER TABLE DataAnalystRole
 DROP COLUMN tempWFH
 
+-- 5. Remove columns with only one (1) distinct values
+-- 5.1. Check the distinct value of search_term
+SELECT DISTINCT(search_term)
+FROM DataAnalystRole
+-- returns a value of 'data analyst'
+
+-- 5.2. Remove the search_term column
+ALTER TABLE DataAnalystRole
+DROP COLUMN search_term
+
+-- 5.3. Check the distinct value of search_location
+SELECT DISTINCT(search_location)
+FROM DataAnalystRole
+-- returns a value of 'United States'
+
+-- 5.4. Remove the search_location column
+ALTER TABLE DataAnalystRole
+DROP COLUMN search_location
+
 ================================================================================
